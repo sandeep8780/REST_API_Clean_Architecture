@@ -1,16 +1,71 @@
-# demo13
+📱 Flutter REST API App - Clean Architecture Example
+This Flutter project demonstrates how to build a RESTful API-based app using Clean Architecture principles.
+It fetches a list of users from a public API (https://jsonplaceholder.typicode.com/users) and displays them in a simple UI.
 
-A new Flutter project.
+Architecture Overview
+lib/
+├── data/
+│   ├── models/
+│   ├── repositories/
+│   └── sources/
+├── domain/
+│   ├── entities/
+│   ├── repositories/
+│   └── usecases/
+├── presentation/
+│   ├── pages/
+│   └── providers/
+└── main.dart
 
-## Getting Started
+ Layers:
+| Layer        | Responsibility                                   |
+| ------------ | ------------------------------------------------ |
+| Presentation | UI widgets and state management                  |
+| Domain       | Business logic: entities, repositories, usecases |
+| Data         | API communication, models, repository impl       |
 
-This project is a starting point for a Flutter application.
+ API Used
+URL: https://jsonplaceholder.typicode.com/users
+Provides dummy user data (ID, Name, Email, etc.)
 
-A few resources to get you started if this is your first Flutter project:
+Getting Started
+1. Clone the Repo
+git clone https://github.com/your-username/flutter-clean-architecture-rest.git
+cd flutter-clean-architecture-rest
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Install Dependencies
+flutter pub get
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Run the App
+flutter run
+
+
+📦 Dependencies
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.6
+
+Key Files
+| File                        | Purpose                            |
+| --------------------------- | ---------------------------------- |
+| `user_api.dart`             | REST API call using `http` package |
+| `user_model.dart`           | JSON parsing                       |
+| `user_entity.dart`          | Clean business model               |
+| `user_repository.dart`      | Domain repository contract         |
+| `user_repository_impl.dart` | Data implementation of repository  |
+| `get_users_usecase.dart`    | Use case for fetching user data    |
+| `user_page.dart`            | UI for listing users               |
+
+
+Why Clean Architecture?
+Testable: Each layer can be tested independently.
+
+Scalable: Easy to extend (e.g., add local DB, auth).
+
+Maintainable: Clear separation of concerns.
+
+✍️ Author
+👤 Sandeep Prajapati
+📧 prajapatisandip2003@gmail.com
+🔗 https://www.linkedin.com/in/sandip-prajapati-/
